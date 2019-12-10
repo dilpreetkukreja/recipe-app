@@ -63,15 +63,21 @@ class RecipeDetails extends React.Component{
                     {
                         this.props.recipeInformation.dishTypes?
                         <div className='row' style={{flexDirection:'column'}}>
-                            <h1 className={classes.heading}>Dish Type</h1>
-                            <p className={classes.sideDish}>{dishTypeStr}</p>
+                            <div className="col-12">
+                                <h1 className={classes.heading}>Dish Type</h1>
+                                <p className={classes.sideDish}>{dishTypeStr}</p>
+                            </div>
+                           
                         </div>
                         :null
                     }
                     <div className='row'>
-                     <a target='_blank' without rel="noopener noreferrer" className={classes.button} href={this.props.recipeInformation.sourceUrl}>Go to Recipe Website</a>
-                     <button className={classes.button} onClick={this.props.backToRecipes}>Back to All Recipes</button>
-                    </div>     
+                        <div className="col-12 d-flex">
+                            <a target='_blank' without rel="noopener noreferrer" className={classes.button} href={this.props.recipeInformation.sourceUrl}>Go to Recipe Website</a>
+                            <button className={classes.button} onClick={this.props.backToRecipes}>Back to All Recipes</button>
+                        </div>
+                    </div>   
+                    <br />  
                 </div>
             </React.Fragment>
             
