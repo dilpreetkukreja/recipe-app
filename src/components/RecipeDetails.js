@@ -26,7 +26,7 @@ class RecipeDetails extends React.Component{
                             <img className='mb-2' src={this.props.imageUrl} alt={this.props.title}/>
                         </div>
                         <div className='col-md-6'>
-                            <div dangerouslySetInnerHTML={{ __html:summary }} />
+                            <div class={classes.recipeDetails} dangerouslySetInnerHTML={{ __html:summary }} />
                         </div>
                     </div>
                     <hr />

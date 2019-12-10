@@ -18,3 +18,6 @@
 .sideDish::first-letter{
     text-transform: uppercase;
 }
+.recipeDetails a{
+    color: rgb(253,159,0);
+}
