@@ -11,7 +11,7 @@ const recipe = (props) => {
                     {/*<p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>*/}  
                 </div>
                 <div className="d-flex justify-content-start card-footer" style={{fontSize:'14px', paddingLeft:'20px'}} >
-                    <button className="border-danger text-danger mr-2" 
+                    <button className="border-danger text-danger bg-white mr-2" 
                             onClick={()=>props.showDetailsHandler(props.recipe.id, props.recipe.image, props.recipe.title)}
                             >View Details
                     </button> 

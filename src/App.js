@@ -41,14 +41,24 @@ class App extends React.Component {
     let url1 = `https://api.spoonacular.com/recipes/${this.state.searchRecipeId}/ingredientWidget.json?apiKey=${API_KEY}`;
     let url2 = `https://api.spoonacular.com/recipes/${this.state.searchRecipeId}/analyzedInstructions?apiKey=${API_KEY}`;
     let url3 = `https://api.spoonacular.com/recipes/${this.state.searchRecipeId}/summary?apiKey=${API_KEY}`;
-    let url4 = `https://api.spoonacular.com/recipes/716429/information?apiKey=${API_KEY}`;
+    let url4 = `https://api.spoonacular.com/recipes/${this.state.searchRecipeId}/information?apiKey=${API_KEY}`;
     Promise.all([fetch(url1), fetch(url2),  fetch(url3), fetch(url4)])
-    .then(([response1, response2, response3, response4])=> Promise.all([response1.json(), response2.json(), response3.json(), response4.json()]))
-    .then(([data1, data2, data3, data4])=> this.setState({ingredients: data1.ingredients, instructions: data2, summary: data3.summary, recipeInformation: data4}))
+    .then(([response1, response2, response3, response4])=> Promise.all([response1.json(), 
+                                                                        response2.json(), 
+                                                                        response3.json(), 
+                                                                        response4.json()]))
+    .then(([data1, data2, data3, data4])=> this.setState({ingredients: data1.ingredients, 
+                                                          instructions: data2, 
+                                                          summary: data3.summary, 
+                                                          recipeInformation: data4}))
   }
 
   showDetailsHandler=(id, imageUrl, title)=> {
-    this.setState(()=>{return {searchRecipeId: id, recipeDetails:true, searchImageUrl: imageUrl, searchTitle: title}}, this.apiCalls);
+    this.setState(()=>{return {searchRecipeId: id, 
+                              recipeDetails:true, 
+                              searchImageUrl: imageUrl, 
+                              searchTitle: title}}, 
+                              this.apiCalls);
     /*this.setState(()=>{return {searchRecipeId: id, recipeDetails:true}}, ()=>{
       fetch(`https://api.spoonacular.com/recipes/${this.state.searchRecipeId}/ingredientWidget.json?apiKey=${API_KEY}`)
         .then(response=>response.json())

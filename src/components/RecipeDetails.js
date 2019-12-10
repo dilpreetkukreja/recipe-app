@@ -4,6 +4,12 @@ import classes from './RecipeDetails.module.css';
 class RecipeDetails extends React.Component{
     render(){
         let summary = this.props.summary;
+        let dishTypeStr = '';
+        if(this.props.recipeInformation.dishTypes){
+            let dishType = this.props.recipeInformation.dishTypes.map((type,index)=>type);
+            dishTypeStr = dishType.join(", ");
+        }
+         
         return (
             <React.Fragment>
                 <div className='container'>
@@ -55,15 +61,15 @@ class RecipeDetails extends React.Component{
                     </div>
                     <hr />
                     {
-                        this.props.recipeInformation.winePairing?
-                        <div className='row'>
-                            <h1 className={classes.heading}>Wine Pairing</h1>
-                            <p>{this.props.recipeInformation.winePairing.pairingText}</p>
+                        this.props.recipeInformation.dishTypes?
+                        <div className='row' style={{flexDirection:'column'}}>
+                            <h1 className={classes.heading}>Dish Type</h1>
+                            <p className={classes.sideDish}>{dishTypeStr}</p>
                         </div>
                         :null
                     }
                     <div className='row'>
-                     <a className={classes.button} href={this.props.recipeInformation.sourceUrl}>Go to Recipe Website</a>
+                     <a target='_blank' without rel="noopener noreferrer" className={classes.button} href={this.props.recipeInformation.sourceUrl}>Go to Recipe Website</a>
                      <button className={classes.button} onClick={this.props.backToRecipes}>Back to All Recipes</button>
                     </div>     
                 </div>
